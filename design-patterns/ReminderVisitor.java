@@ -5,15 +5,16 @@ public class ReminderVisitor extends NodeVisitor {
 	private ProductList productList;
 
 	public void visitProduct(Product product) {
-
+		System.out.println("Visiting Product");
 	}
 
-	public void visitTrading(Trading trading) {
-
+	public Reminder visitTrading(Trading trading) {
+		System.out.println("Visiting Trading");
+		return null;
 	}
 
 	public void visitFacade(Facade facade) {
-
+		System.out.println("Visiting Facade");
 	}
 
 }

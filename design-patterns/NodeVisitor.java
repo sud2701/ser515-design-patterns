@@ -4,8 +4,9 @@ public class NodeVisitor {
 
 	}
 
-	public void visitTrading(Trading trading) {
+	public Reminder visitTrading(Trading trading) {
 
+		return null;
 	}
 
 	public void visitFacade(Facade facade) {

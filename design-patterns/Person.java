@@ -2,6 +2,8 @@ public abstract class Person {
 
 	private ProductMenu theProductMenu;
 
+	private UserInfoItem userinfo;
+
 	Person(ProductMenu theProductMenu){
 		this.theProductMenu=theProductMenu;
 	}

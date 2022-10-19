@@ -1,3 +1,8 @@
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Iterator;
+import java.util.Scanner;
+
 public class Facade {
 
 	private int UserType;
@@ -10,8 +15,16 @@ public class Facade {
 
 	private Person thePerson;
 
-	public void login() {
+	Facade(){
+		System.out.println("Facade Pattern Started: ");
+	}
 
+	public void startFacade() throws IOException {
+		System.out.println("Start Facade Method called!!");
+	}
+	public int login(Login lg) throws IOException {
+
+		return lg.login();
 	}
 
 	public void addTrading() {
@@ -35,7 +48,6 @@ public class Facade {
 	}
 
 	public void remind() {
-
 	}
 
 	public void createUser(UserInfoItem userInfoItem) {
@@ -50,7 +62,7 @@ public class Facade {
 
 	}
 
-	public void SelectProduct() {
+	public void SelectProduct(ProductMenu productMenu, int userType) {
 
 	}
 

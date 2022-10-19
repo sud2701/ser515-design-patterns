@@ -22,8 +22,8 @@ public class OfferingIterator implements ListIterator {
 		System.out.println("Head Moved!!");
 	}
 
-	public void Remove() {
-
+	public void Remove(Iterator it) {
+		it.remove();
 	}
 
 	@Override

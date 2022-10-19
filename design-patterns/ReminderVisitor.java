@@ -2,9 +2,8 @@ public class ReminderVisitor extends NodeVisitor {
 
 	private Reminder m_Reminder;
 
-	private ProductList productList;
-
 	public void visitProduct(Product product) {
+
 		System.out.println("Visiting Product");
 	}
 
@@ -14,6 +13,7 @@ public class ReminderVisitor extends NodeVisitor {
 	}
 
 	public void visitFacade(Facade facade) {
+
 		System.out.println("Visiting Facade");
 	}
 

@@ -7,13 +7,10 @@ public class OfferingList extends ArrayList {
 
 	private Trading trading;
 
-	ArrayList<String> off=new ArrayList<>();
+	ArrayList<Offering> off;
 
 	OfferingList(){
-		off.add("A");
-		off.add("B");
-		off.add("C");
-		off.add("D");
+		off=new ArrayList<>();
 	}
 
 	public Iterator createIterator(){

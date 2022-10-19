@@ -1,7 +1,12 @@
 public class ProduceProductMenu implements ProductMenu {
 
+	ProduceProductMenu(){
+		showMenu();
+	}
+
 	public void showMenu() {
-		System.out.println();
+		System.out.println("1. Tomato");
+		System.out.println("2. Onion");
 	}
 
 	public void showAddButton() {

@@ -1,7 +1,13 @@
 public class MeatProductMenu implements ProductMenu {
 
+	MeatProductMenu(){
+		showMenu();
+	}
+
 	public void showMenu() {
-		System.out.println();
+		System.out.println("1. Beef");
+		System.out.println("2. Pork");
+		System.out.println("3. Mutton");
 	}
 
 	public void showAddButton() {

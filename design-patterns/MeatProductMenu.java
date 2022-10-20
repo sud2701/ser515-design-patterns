@@ -11,26 +11,29 @@ public class MeatProductMenu implements ProductMenu {
 	}
 
 	public void showAddButton() {
-		System.out.println();
+
+		System.out.println("Meat Add Button");
 	}
 
 	public void showViewButton() {
-		System.out.println();
+
+		System.out.println("View Meat Options Button");
 	}
-//	public void selectCourse(int USerType) {
-//		System.out.println("High Level Course Selected ...\n Bridge Pattern for connection used");
-//	}
+
 
 	public void showRadioButton() {
-		System.out.println();
+
+		System.out.println("View Meat Type Button");
 	}
 
 	public void showLabels() {
-		System.out.println();
+
+		System.out.println("Meat Labels Button");
 	}
 
 	public void showComboxes() {
-		System.out.println();
+
+		System.out.println("Meat Comboxes Button");
 	}
 
 }

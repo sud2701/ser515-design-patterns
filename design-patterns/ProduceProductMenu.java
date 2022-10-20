@@ -10,23 +10,28 @@ public class ProduceProductMenu implements ProductMenu {
 	}
 
 	public void showAddButton() {
-		System.out.println();
+
+		System.out.println("Add Produce Button");
 	}
 
 	public void showViewButton() {
-		System.out.println();
+
+		System.out.println("View Produce Button");
 	}
 
 	public void showRadioButton() {
-		System.out.println();
+
+		System.out.println("View Produce Type Button");
 	}
 
 	public void showLabels() {
-		System.out.println();
+
+		System.out.println("Produce Labels Button");
 	}
 
 	public void showComboxes() {
-		System.out.println();
+
+		System.out.println("Produce Comboxes Button");
 	}
 
 }

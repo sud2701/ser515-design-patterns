@@ -1,30 +1,31 @@
 import java.util.Scanner;
-
+@SuppressWarnings(value="unused")
 public class Buyer extends Person {
 
-	Buyer(ProductMenu theProductMenu) {
+	Buyer() {
 		super(theProductMenu);
 	}
 
 	public void showMenu() {
+
 		System.out.println("Buyer Menu Items: ");
+		int type=super.userinfo.getUsertype();
+		if(theProductMenu.getClass()==new MeatProductMenu().getClass()){
+			System.out.println("Meat Product Menu : ");
+		}
+		else if(theProductMenu.getClass()==new ProduceProductMenu().getClass()){
+			System.out.println("Produce Product Menu : ");
+		}
 	}
 
-	public ProductMenu CreateProductMenu() {
-		System.out.println("Here are your choices:");
-		System.out.println("1. Meat Product Menu");
-		System.out.println("2. Produce Product Menu");
-		System.out.print("Please enter your choice: ");
+	public void CreateProductMenu() {
 
-		Scanner x=new Scanner(System.in);
-		int ch=x.nextInt();
-		switch(ch){
-			case 1: return new MeatProductMenu();
-			case 2: return new ProduceProductMenu();
-			default: System.out.println("Invalid Choice");
-			System.exit(-1);
+		if(productType==0){
+			theProductMenu=new MeatProductMenu();
 		}
-		return null;
+		else if(productType==1){
+			theProductMenu=new ProduceProductMenu();
+		}
 	}
 
 }

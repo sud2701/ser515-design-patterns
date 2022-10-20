@@ -1,10 +1,13 @@
 public abstract class Person {
 
-	private ProductMenu theProductMenu;
+	protected static ProductMenu theProductMenu;
 
-	private UserInfoItem userinfo;
+	protected UserInfoItem userinfo;
 
-	Person(ProductMenu theProductMenu){
+	protected static int productType;
+
+	public Person(ProductMenu theProductMenu){
+
 		this.theProductMenu=theProductMenu;
 	}
 
@@ -26,6 +29,6 @@ public abstract class Person {
 		theProductMenu.showLabels();
 	}
 
-	public abstract ProductMenu CreateProductMenu();
+	public abstract void CreateProductMenu();
 
 }

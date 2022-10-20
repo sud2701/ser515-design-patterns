@@ -1,9 +1,12 @@
-import java.io.FileNotFoundException;
 import java.io.IOException;
-
+@SuppressWarnings(value="unused")
 public class Main {
     public static void main(String[] args) throws IOException {
-        Facade f=new Facade();
-        f.startFacade();
+        try {
+            Facade f = new Facade();
+        }
+        catch(Exception e){
+            e.getMessage();
+        }
     }
 }

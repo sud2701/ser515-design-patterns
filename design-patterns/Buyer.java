@@ -3,13 +3,12 @@ import java.util.Scanner;
 public class Buyer extends Person {
 
 	Buyer() {
-
+		System.out.println("**************************Implementation of Bridge Pattern********************");
 	}
 
 	public void showMenu() {
 
 		System.out.println("Buyer Menu Items: ");
-		int type=super.userinfo.getUsertype();
 		productMenu.display();
 	}
 

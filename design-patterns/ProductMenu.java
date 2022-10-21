@@ -1,20 +1,21 @@
+@SuppressWarnings(value="unused")
 public interface ProductMenu {
 
 	Person person = null;
 
-	public abstract void showAddButton();
+	void showAddButton();
 
-	public abstract void showViewButton();
+	void showViewButton();
 
-	public abstract void showRadioButton();
+	void showRadioButton();
 
-	public abstract void showLabels();
+	void showLabels();
 
-	public abstract void showComboxes();
+	void showComboxes();
 
-	public abstract void showMenu();
+	void showMenu();
 
-	public abstract void display();
+	void display();
 
 
 }

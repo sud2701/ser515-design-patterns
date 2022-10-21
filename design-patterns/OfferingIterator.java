@@ -1,73 +1,35 @@
-import java.util.Iterator;
-import java.util.ListIterator;
+@SuppressWarnings(value="all")
 
-public class OfferingIterator implements ListIterator {
+public class OfferingIterator implements Listiterator {
 
-	@Override
-	public boolean hasNext() {
-		return false;
+	OfferingList offList;
+	int i=-1;
+	OfferingIterator(OfferingList ol){
+
+		this.offList=ol;
 	}
+	public boolean HasNext() {
 
-	@Override
-	public Object next() {
-		return null;
-	}
-
-	@Override
-	public boolean hasPrevious() {
-		return false;
-	}
-
-	@Override
-	public Object previous() {
-		return null;
-	}
-
-	@Override
-	public int nextIndex() {
-		return 0;
-	}
-
-	@Override
-	public int previousIndex() {
-		return 0;
-	}
-
-	@Override
-	public void remove() {
-
-	}
-
-	@Override
-	public void set(Object o) {
-
-	}
-
-	@Override
-	public void add(Object o) {
-
-	}
-	public boolean HasNext(Iterator iterator) {
-		return iterator.hasNext();
-	}
-
-
-
-	public Product Next(Iterator iterator) {
-		if(this.HasNext(iterator)){
-			return (Product)iterator.next();
-		}
+		if(i<this.offList.size()-1) return true;
 		else{
-			return null;
+			return false;
 		}
+	}
+
+
+
+	public Object Next() {
+		if(this.HasNext()){
+			return this.offList.get(++i);
+		}
+		return null;
 	}
 
 	public void MoveToHead() {
 		System.out.println("Head Moved!!");
 	}
 
-	public void Remove(Iterator it) {
-		it.remove();
+	public void Remove() {
 	}
 
 

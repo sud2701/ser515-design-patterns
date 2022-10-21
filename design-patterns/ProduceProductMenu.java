@@ -1,7 +1,9 @@
 public class ProduceProductMenu implements ProductMenu {
 
 	ProduceProductMenu(){
-
+		System.out.println("*******************Implementation of Factory Pattern****************");
+		System.out.println("Produce Product Menu");
+		display();
 	}
 
 	public void showAddButton() {

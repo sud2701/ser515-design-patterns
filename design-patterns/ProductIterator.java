@@ -1,64 +1,27 @@
-import java.util.Iterator;
-import java.util.ListIterator;
+@SuppressWarnings(value="all")
+public class ProductIterator implements Listiterator {
 
-public class ProductIterator implements ListIterator {
+	ProductList prodList;
+	int index=-1;
 
-	@Override
-	public boolean hasNext() {
-		return false;
+	ProductIterator(ProductList prodList){
+		this.prodList=prodList;
 	}
 
-	@Override
-	public Object next() {
-		return null;
-	}
-
-	@Override
-	public boolean hasPrevious() {
-		return false;
-	}
-
-	@Override
-	public Object previous() {
-		return null;
-	}
-
-	@Override
-	public int nextIndex() {
-		return 0;
-	}
-
-	@Override
-	public int previousIndex() {
-		return 0;
-	}
-
-	@Override
-	public void remove() {
-
-	}
-
-	@Override
-	public void set(Object o) {
-
-	}
-
-	@Override
-	public void add(Object o) {
-
-	}
-	public boolean HasNext(Iterator it) {
-
-		return it.hasNext();
-	}
-
-	public Product Next(Iterator it) {
-		if(this.HasNext(it)){
-			return (Product)it.next();
+	public boolean HasNext() {
+		if(index < this.prodList.size()-1){
+			return true;
+		}else{
+			return false;
 		}
-		else{
-			return null;
+
+	}
+
+	public Object Next() {
+		if(this.HasNext()){
+			return this.prodList.get(++index);
 		}
+		return null;
 	}
 
 	public void MoveToHead() {
@@ -66,9 +29,7 @@ public class ProductIterator implements ListIterator {
 		System.out.println("Moved Head");
 	}
 
-	public void Remove(Iterator it) {
-		if(this.HasNext(it)){
-			it.remove();
-		}
+
+	public void Remove() {
 	}
 }

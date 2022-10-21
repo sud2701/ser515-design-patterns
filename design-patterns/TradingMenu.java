@@ -1,3 +1,4 @@
+@SuppressWarnings(value="unused")
 public class TradingMenu {
 
     public void viewTrading(){

@@ -1,3 +1,5 @@
+@SuppressWarnings(value="unused")
+
 public abstract class Person {
 
 	protected static ProductMenu productMenu;
@@ -9,7 +11,7 @@ public abstract class Person {
 	ProductList prodList;
 
 	public Person(){
-
+		prodList=new ProductList();
 
 	}
 	public void showAddButton() {
@@ -28,9 +30,6 @@ public abstract class Person {
 		productMenu.showLabels();
 	}
 
-	public void addProduct(Product product){
-		prodList.addProduct(product);
-	}
 
 	public abstract void showMenu();
 

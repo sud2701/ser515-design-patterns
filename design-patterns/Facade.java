@@ -1,11 +1,13 @@
 import java.io.*;
-import java.util.HashMap;
-import java.util.Iterator;
+import java.util.ArrayList;
 import java.util.Scanner;
 
-@SuppressWarnings(value="unused")
+@SuppressWarnings(value="all")
 public class Facade {
 
+	Trading t;
+
+	OfferingList ol;
 	private TradingMenu tm;
 
 	private OfferingMenu om;
@@ -14,15 +16,18 @@ public class Facade {
 
 	private int UserType;
 
-	private Product selectedProduct;
+	Product selectedProduct;
 
 	private int nProdCategory;
 
-	private ProductList prodList;
+	ProductList prodList;
 
 	private Person person;
 
+	ArrayList<Trading> trlist=new ArrayList<>();
+
 	Facade() throws IOException {
+
 		Scanner x = new Scanner(System.in);
 		System.out.println("Facade Pattern Started: ");
 	}
@@ -31,13 +36,30 @@ public class Facade {
 		System.out.println("Start Facade Method called!!");
 		login();
 		createProductList();
-//		System.out.println("The product selected : ");
-//		System.out.println(this.selectedProduct.getName());
-//		System.out.println(":");
-//		System.out.println(this.selectedProduct.getType()+"(Type)");
+
 		productOperation();
 		AttachProductToUser();
-		SelectProduct();
+		System.out.println("Done Attaching");
+		selectedProduct=SelectProduct();
+		String t;
+		if(selectedProduct.getType()==0){
+			t="Meat";
+		}
+		else{
+			t="Produce";
+		}
+		System.out.println("The selected Product : ");
+		System.out.println(t+" : "+selectedProduct.getName());
+
+		remind();
+		System.out.println("These are the trades: ");
+		OfferingIterator oi;
+		oi = new OfferingIterator(ol);
+		int x=0;
+		while(oi.HasNext()){
+			System.out.println(userInfoItem.getUsername()+" has a trade for "+(String)oi.Next());
+		}
+		System.out.println("This is the End of the Program. ");
 
 	}
 	public void login() throws IOException {
@@ -69,34 +91,49 @@ public class Facade {
 	}
 
 	public void AttachProductToUser() throws IOException {
+		ol=new OfferingList();
+		String tol;
+		System.out.println("Attaching Prod to user");
 		BufferedReader br=new BufferedReader(new FileReader("UserProduct.txt"));
-		String userproduct=br.readLine();
-		while(userproduct!=null){
+		String userproduct;
+		Product p;
+		int counter=1;
+		while((userproduct=br.readLine())!=null){
 			String[] words=userproduct.split(":");
 			if(words[0].equals(userInfoItem.getUsername())){
-				for(int i=0;i<prodList.size();i++){
-					Product p=(Product)prodList.get(i);
-					if(p.getName().equals(words[1])){
-						person.prodList.addProduct(new Product(p.getType(),p.getName()));
+
+				for(int i=0;i<this.prodList.size();i++) {
+					p = (Product) this.prodList.get(i);
+					if (p.getName().equals(words[1])) {
+						person.prodList.add(p);
+						if(p.getType()==0){
+							tol="Meat";
+						}
+						else{
+							tol="Produce";
+						}
+						ol.add(tol);
 						break;
 					}
 				}
-
 			}
-			userproduct=br.readLine();
+		}
+		this.t=new Trading(ol);
+		for(int i=0;i<prodList.size();i++){
+			Product q=(Product)prodList.get(i);
+			q.setTrading(t);
+		}
 		}
 
-	}
-
 	public Product SelectProduct() {
-
+		System.out.println("*******************Implementation of Iterator Pattern**********************");
 		System.out.println("Select Product Method Called!!");
 		System.out.println("These are the available products: ");
-		Iterator<Product> prit=(Iterator<Product>)prodList.createIterator();
-		ProductIterator pi=new ProductIterator();
-		int pos=1;
-		while(pi.HasNext(prit)){
-			Product p=prit.next();
+
+		ProductIterator pi=new ProductIterator(this.prodList);
+		int pos=0;
+		while(pos<5){
+			Product p=(Product)pi.Next();
 			String t;
 			if(p.getType()==0){
 				t="Meat";
@@ -111,11 +148,32 @@ public class Facade {
 		System.out.println("Enter the number associated with your desired product: ");
 		Scanner x=new Scanner(System.in);
 		int ch=x.nextInt();
-		selectedProduct=(Product)prodList.get(ch-1);
-		return selectedProduct;
+		Product sp=(Product)prodList.get(ch);
+		return sp;
 	}
 
+	public void display(){
+		System.out.println("Select Product Method Called!!");
+		System.out.println("These are the available products: ");
+
+		ProductIterator pi=new ProductIterator(this.prodList);
+		int pos=0;
+		while(pos<5){
+			Product p=(Product)pi.Next();
+			String t;
+			if(p.getType()==0){
+				t="Meat";
+			}
+			else{
+				t="Produce";
+			}
+			System.out.println(pos+". ");
+			System.out.println(p.getName()+":"+t+"(Type)");
+			pos+=1;
+		}
+	}
 	public void productOperation() {
+
 		person.CreateProductMenu();
 	}
 
@@ -149,7 +207,7 @@ public class Facade {
 
 	public void remind() {
 		System.out.println("Reminder called!!");
-		Reminder r = new Reminder();
+		ReminderVisitor r = new ReminderVisitor();
 		r.visitFacade(this);
 	}
 

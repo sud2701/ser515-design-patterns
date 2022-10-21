@@ -1,8 +1,9 @@
+@SuppressWarnings(value="unused")
 public class UserInfoItem {
-    private String username;
-    private String password;
+    private final String username;
+    private final String password;
 
-    private int usertype;
+    private final int usertype;
 
     public UserInfoItem(String username, String password, int usertype) {
         this.username = username;

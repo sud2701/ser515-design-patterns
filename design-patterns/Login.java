@@ -1,6 +1,6 @@
 import java.io.*;
 import java.util.Scanner;
-
+@SuppressWarnings(value="all")
 public class Login {
 
     Login() {

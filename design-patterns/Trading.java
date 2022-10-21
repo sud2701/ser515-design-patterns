@@ -1,10 +1,13 @@
+
 public class Trading {
 
-	private OfferingList offeringList;
+	public OfferingList offList;
 
-	private Product product;
+	Trading(OfferingList off){
+		this.offList=off;
+	}
 
-	public void accept(NodeVisitor nv) {
+	public void accept(ReminderVisitor nv) {
 		System.out.println("Accept Method in Trading");
 		nv.visitTrading(this);
 	}

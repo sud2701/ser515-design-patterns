@@ -1,31 +1,27 @@
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-
+@SuppressWarnings(value="all")
 public class ProductList extends ArrayList{
 
 	private Product[] product;
 
 	private ReminderVisitor reminderVisitor;
 
-	ArrayList<Product> prodList = new ArrayList<>();
+
 
 
 	ProductList(){
 	}
 
-	public Object createIterator() {
 
-		return this.prodList.iterator();
-	}
 
 	public void getProductList() throws IOException {
 		BufferedReader br=new BufferedReader(new FileReader("ProductInfo.txt"));
-		String s=br.readLine();
+		String s;
 		int temptype=-1;
-		while(s!=null){
+		while((s=br.readLine())!=null){
 			String[] words=s.split(":");
 			if(words[0].equals("Meat")){
 				temptype=0;
@@ -38,13 +34,14 @@ public class ProductList extends ArrayList{
 				System.out.println("Unable to proceed forward");
 				System.exit(-1);
 			}
-			prodList.add(new Product(temptype,words[1]));
-			s=br.readLine();
+			this.add(new Product(temptype,words[1]));
 		}
 	}
 
-	public void addProduct(Product product){
-		prodList.add(product);
+
+
+	public void accept(NodeVisitor nv){
+		System.out.println("Accept Method in Product List");
 	}
 
 }

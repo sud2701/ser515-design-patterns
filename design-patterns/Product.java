@@ -1,12 +1,14 @@
+@SuppressWarnings(value="unused")
 public class Product {
 
-	private Trading trading;
+	public Trading trading;
 
 	private ProductList productList;
 
-	private int type;
+	private final int type;
 
-	private String name;
+	private final String name;
+
 
 	Product(int type, String name){
 		this.type=type;
@@ -26,6 +28,10 @@ public class Product {
 	public String getName(){
 
 		return this.name;
+	}
+
+	public void setTrading(Trading t){
+		this.trading=t;
 	}
 
 }

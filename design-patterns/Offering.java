@@ -1,3 +1,4 @@
+@SuppressWarnings(value="all")
 public class Offering {
 
 	private OfferingList offeringList;
@@ -5,6 +6,7 @@ public class Offering {
 	private String off;
 
 	Offering(String off){
+
 		this.off=off;
 	}
 

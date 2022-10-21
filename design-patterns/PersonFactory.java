@@ -6,6 +6,15 @@ public class PersonFactory extends Person{
         System.out.println("Factory Pattern Started: ");
     }
 
+    @Override
+    public void showMenu() {
+
+    }
+
+    @Override
+    public void CreateProductMenu() {
+    }
+
     public Person createPerson(int usertype){
         if(usertype==1){
             return new Seller();
@@ -18,14 +27,5 @@ public class PersonFactory extends Person{
             System.exit(-1);
         }
         return null;
-    }
-
-    @Override
-    public void showMenu() {
-
-    }
-
-    @Override
-    public void CreateProductMenu() {
     }
 }

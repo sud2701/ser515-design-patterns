@@ -3,32 +3,6 @@ import java.util.ListIterator;
 
 public class ProductIterator implements ListIterator {
 
-	public boolean HasNext(Iterator it) {
-
-		return it.hasNext();
-	}
-
-	public Product Next(Iterator it) {
-		if(this.HasNext(it)){
-			return (Product)it.next();
-		}
-		else{
-			return null;
-		}
-	}
-
-	public void MoveToHead() {
-
-		System.out.println("Moved Head");
-	}
-
-	public void Remove(Iterator it) {
-		if(this.HasNext(it)){
-			it.remove();
-		}
-	}
-
-
 	@Override
 	public boolean hasNext() {
 		return false;
@@ -72,5 +46,29 @@ public class ProductIterator implements ListIterator {
 	@Override
 	public void add(Object o) {
 
+	}
+	public boolean HasNext(Iterator it) {
+
+		return it.hasNext();
+	}
+
+	public Product Next(Iterator it) {
+		if(this.HasNext(it)){
+			return (Product)it.next();
+		}
+		else{
+			return null;
+		}
+	}
+
+	public void MoveToHead() {
+
+		System.out.println("Moved Head");
+	}
+
+	public void Remove(Iterator it) {
+		if(this.HasNext(it)){
+			it.remove();
+		}
 	}
 }

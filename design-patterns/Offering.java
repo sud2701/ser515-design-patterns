@@ -2,10 +2,10 @@ public class Offering {
 
 	private OfferingList offeringList;
 
-	private String offer;
+	private String off;
 
 	Offering(String off){
-		this.offer=off;
+		this.off=off;
 	}
 
 }

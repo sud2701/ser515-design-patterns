@@ -1,12 +1,7 @@
 public class ProduceProductMenu implements ProductMenu {
 
 	ProduceProductMenu(){
-		showMenu();
-	}
 
-	public void showMenu() {
-		System.out.println("1. Tomato");
-		System.out.println("2. Onion");
 	}
 
 	public void showAddButton() {
@@ -32,6 +27,19 @@ public class ProduceProductMenu implements ProductMenu {
 	public void showComboxes() {
 
 		System.out.println("Produce Comboxes Button");
+	}
+	public void showMenu() {
+		System.out.println("1. Tomato");
+		System.out.println("2. Onion");
+	}
+
+	public void display(){
+		showMenu();
+		showAddButton();
+		showViewButton();
+		showRadioButton();
+		showLabels();
+		showComboxes();
 	}
 
 }

@@ -1,13 +1,7 @@
 public class MeatProductMenu implements ProductMenu {
 
 	MeatProductMenu(){
-		showMenu();
-	}
 
-	public void showMenu() {
-		System.out.println("1. Beef");
-		System.out.println("2. Pork");
-		System.out.println("3. Mutton");
 	}
 
 	public void showAddButton() {
@@ -23,7 +17,7 @@ public class MeatProductMenu implements ProductMenu {
 
 	public void showRadioButton() {
 
-		System.out.println("View Meat Type Button");
+		System.out.println("View Meat Type Radio Button");
 	}
 
 	public void showLabels() {
@@ -34,6 +28,21 @@ public class MeatProductMenu implements ProductMenu {
 	public void showComboxes() {
 
 		System.out.println("Meat Comboxes Button");
+	}
+
+	public void showMenu() {
+		System.out.println("1. Beef");
+		System.out.println("2. Pork");
+		System.out.println("3. Mutton");
+	}
+
+	public void display(){
+		showMenu();
+		showAddButton();
+		showViewButton();
+		showRadioButton();
+		showLabels();
+		showComboxes();
 	}
 
 }

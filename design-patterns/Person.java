@@ -1,33 +1,38 @@
 public abstract class Person {
 
-	protected static ProductMenu theProductMenu;
+	protected static ProductMenu productMenu;
 
 	protected UserInfoItem userinfo;
 
 	protected static int productType;
 
-	public Person(ProductMenu theProductMenu){
+	ProductList prodList;
 
-		this.theProductMenu=theProductMenu;
+	public Person(){
+
+
 	}
-
-	public abstract void showMenu();
-
 	public void showAddButton() {
-		theProductMenu.showAddButton();
+		productMenu.showAddButton();
 	}
 
 	public void showViewButton() {
-		theProductMenu.showViewButton();
+		productMenu.showViewButton();
 	}
 
 	public void showRadioButton() {
-		theProductMenu.showRadioButton();
+		productMenu.showRadioButton();
 	}
 
 	public void showLabels() {
-		theProductMenu.showLabels();
+		productMenu.showLabels();
 	}
+
+	public void addProduct(Product product){
+		prodList.addProduct(product);
+	}
+
+	public abstract void showMenu();
 
 	public abstract void CreateProductMenu();
 

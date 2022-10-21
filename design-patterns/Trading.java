@@ -4,8 +4,8 @@ public class Trading {
 
 	private Product product;
 
-	public void accept(NodeVisitor visitor) {
-		System.out.println("Visiting the Trading");
-		visitor.visitTrading(this);
+	public void accept(NodeVisitor nv) {
+		System.out.println("Accept Method in Trading");
+		nv.visitTrading(this);
 	}
 }

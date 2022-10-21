@@ -3,29 +3,6 @@ import java.util.ListIterator;
 
 public class OfferingIterator implements ListIterator {
 
-	public boolean HasNext(Iterator iterator) {
-		return iterator.hasNext();
-	}
-
-
-
-	public Product Next(Iterator iterator) {
-		if(this.HasNext(iterator)){
-			return (Product)iterator.next();
-		}
-		else{
-			return null;
-		}
-	}
-
-	public void MoveToHead() {
-		System.out.println("Head Moved!!");
-	}
-
-	public void Remove(Iterator it) {
-		it.remove();
-	}
-
 	@Override
 	public boolean hasNext() {
 		return false;
@@ -70,5 +47,29 @@ public class OfferingIterator implements ListIterator {
 	public void add(Object o) {
 
 	}
+	public boolean HasNext(Iterator iterator) {
+		return iterator.hasNext();
+	}
+
+
+
+	public Product Next(Iterator iterator) {
+		if(this.HasNext(iterator)){
+			return (Product)iterator.next();
+		}
+		else{
+			return null;
+		}
+	}
+
+	public void MoveToHead() {
+		System.out.println("Head Moved!!");
+	}
+
+	public void Remove(Iterator it) {
+		it.remove();
+	}
+
+
 
 }

@@ -20,6 +20,7 @@ public class Login {
                         if (words[0].equals(username) && words[1].equals(password)) {
                             return true;
                         }
+                        s=reader.readLine();
                     }
                     if (s == null) {
                         System.out.println("Not a Verified Buyer");
@@ -34,6 +35,7 @@ public class Login {
                         if (words[0].equals(username) && words[1].equals(password)) {
                             return true;
                         }
+                        s=reader.readLine();
                     }
                     if (s == null) {
                         System.out.println("Not a Verified Seller");
@@ -41,6 +43,7 @@ public class Login {
                     }
                     break;
                 case 2:
+                    System.out.println("Quit initiated");
                     System.exit(-1);
                     break;
                 default:
@@ -51,36 +54,40 @@ public class Login {
         return false;
     }
 
-    public boolean login() throws IOException {
+    public UserInfoItem login() throws IOException {
         int wrong_attempts=0;
         boolean temp;
         Scanner x = new Scanner(System.in);
         String password,username;
         int userType;
         while(wrong_attempts<5){
-            System.out.print("Please enter your username: ");
+            System.out.println("Please enter your username: ");
             username = x.nextLine();
-            System.out.print("Please enter your password: ");
+            System.out.println("Please enter your password: ");
             password = x.nextLine();
-            System.out.println("Users: \n 0. Buyer \n 1. Seller \n 2. Exit");
-            System.out.print("Please enter your user type: ");
+            System.out.println("Please specify your type as below.");
+            System.out.println("If you're a buyer, enter 0.");
+            System.out.println("If you're a seller, enter 1.");
+            System.out.println("To exit the program, enter 2.");
+            System.out.print("Please enter your choice: ");
             userType = x.nextInt();
             temp=is_verified_user(username,password,userType);
             if(temp){
                 UserInfoItem userObject=new UserInfoItem(username,password,userType);
                 System.out.println("Login Successful!! \n Welcome User: "+username);
-                return true;
+                return userObject;
             }
             else{
                 wrong_attempts+=1;
                 System.out.println("Login Unsuccessful!!");
+                continue;
             }
         }
         if(wrong_attempts==5){
             System.out.println("Too many unsuccessful Login attempts!!");
-            return false;
+            return null;
         }
 
-        return false;
+        return null;
     }
 }

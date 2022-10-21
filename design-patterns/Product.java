@@ -14,15 +14,17 @@ public class Product {
 	}
 
 	public void accept(NodeVisitor nv){
-		System.out.println("Visiting the Product");
+		System.out.println("Accept Method in Product");
 		nv.visitProduct(this);
 	}
 
 	public int getType(){
+
 		return this.type;
 	}
 
 	public String getName(){
+
 		return this.name;
 	}
 

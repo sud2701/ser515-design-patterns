@@ -4,17 +4,21 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class ProductList {
+public class ProductList extends ArrayList{
 
 	private Product[] product;
 
 	private ReminderVisitor reminderVisitor;
 
-	ArrayList<Product> prodList;
+	ArrayList<Product> prodList = new ArrayList<>();
 
 
 	ProductList(){
-		prodList=new ArrayList<>();
+	}
+
+	public Object createIterator() {
+
+		return this.prodList.iterator();
 	}
 
 	public void getProductList() throws IOException {
@@ -35,11 +39,12 @@ public class ProductList {
 				System.exit(-1);
 			}
 			prodList.add(new Product(temptype,words[1]));
+			s=br.readLine();
 		}
 	}
 
-    public Object createIterator() {
+	public void addProduct(Product product){
+		prodList.add(product);
+	}
 
-		return this.prodList.iterator();
-    }
 }

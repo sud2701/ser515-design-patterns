@@ -8,9 +8,8 @@ public class ReminderVisitor extends NodeVisitor {
 		System.out.println("Visiting Product");
 	}
 
-	public Reminder visitTrading(Trading trading) {
+	public void visitTrading(Trading trading) {
 		System.out.println("Visiting Trading");
-		return null;
 	}
 
 	public void visitFacade(Facade facade) {

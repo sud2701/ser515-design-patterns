@@ -11,14 +11,17 @@ public class UserInfoItem {
     }
 
     public String getUsername(){
+
         return this.username;
     }
 
     public String getPassword(){
+
         return this.password;
     }
 
     public int getUsertype(){
+
         return this.usertype;
     }
 }

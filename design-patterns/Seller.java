@@ -3,27 +3,28 @@ import java.util.Scanner;
 public class Seller extends Person {
 
 	Seller() {
-		super(theProductMenu);
-	}
-
-	public void showMenu() {
-		System.out.println("Seller Menu Items: ");
-		int type=super.userinfo.getUsertype();
-		if(theProductMenu.getClass()==new MeatProductMenu().getClass()){
-			System.out.println("Meat Product Menu : ");
-		}
-		else if(theProductMenu.getClass()==new ProduceProductMenu().getClass()){
-			System.out.println("Produce Product Menu : ");
-		}
 	}
 
 	public void CreateProductMenu() {
-		if(productType==0){
-			theProductMenu=new MeatProductMenu();
+		System.out.println("What type of Product do you want [0:Meat/1:Produce]?");
+		Scanner x=new Scanner(System.in);
+		int ch=x.nextInt();
+
+		if(ch==0){
+			productMenu=new MeatProductMenu();
+			productType=0;
 		}
-		else if(productType==1){
-			theProductMenu=new ProduceProductMenu();
+		else if(ch==1){
+			productMenu=new ProduceProductMenu();
+			productType=1;
 		}
 	}
+	public void showMenu() {
+		System.out.println("Buyer Menu Items: ");
+		int type=super.userinfo.getUsertype();
+		productMenu.display();
+	}
+
+
 
 }

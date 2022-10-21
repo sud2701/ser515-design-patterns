@@ -6,17 +6,18 @@ public class Reminder {
         System.out.println("Visitor Pattern Started!!");
         nv=new ReminderVisitor();
     }
-    public void visitFacade(Facade facade) {
-        nv.visitFacade(facade);
+    public void visitProduct(Product p) {
+        p.accept(nv);
     }
 
     @SuppressWarnings("unused")
-    public void visitProduct(Product product) {
-        product.accept(nv);
+    public void visitTrading(Trading t) {
+        t.accept(nv);
     }
 
-    @SuppressWarnings("unused")
-    public void visitTrading(Trading trading) {
-        trading.accept(nv);
+    public void visitFacade(Facade f) {
+        nv.visitFacade(f);
     }
+
+
 }

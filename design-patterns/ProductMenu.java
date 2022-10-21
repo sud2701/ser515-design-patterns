@@ -2,8 +2,6 @@ public interface ProductMenu {
 
 	Person person = null;
 
-	public abstract void showMenu();
-
 	public abstract void showAddButton();
 
 	public abstract void showViewButton();
@@ -13,5 +11,10 @@ public interface ProductMenu {
 	public abstract void showLabels();
 
 	public abstract void showComboxes();
+
+	public abstract void showMenu();
+
+	public abstract void display();
+
 
 }
